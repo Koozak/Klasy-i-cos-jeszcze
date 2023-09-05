@@ -1,0 +1,17 @@
+public class Main {
+    public static void main(String[] args){
+    //LOSOWANIE SZEŚCIU LICZB
+
+        //wylosowane liczby zapiszemy w tablicy
+        //tablica w Javie może zawierać tylko typy proste
+        System.out.println("witamy,wylosujemy 6 liczb");
+        int wylosowana [] = new int[6];
+        for (int i = 0; i < wylosowana.length;i++){
+            wylosowana[i] = (int)(Math.random()*100+1);
+            System.out.println(wylosowana[i]);
+        }
+
+
+    }
+
+}
