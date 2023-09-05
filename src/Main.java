@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args){
@@ -42,7 +40,15 @@ public class Main {
             wczytywaneLiczby.add(liczbaWpisana);
         }
         System.out.println("Wczytywane liczby "+wczytywaneLiczby);
-
+        //trafione
+        List<Integer> trafione = new LinkedList<>();
+        for(Integer wylosow:wylosowaneLiczby){
+            if(wczytywaneLiczby.contains(wylosow)){
+                trafione.add(wylosow);
+            }
+        }
+        System.out.println("trafione liczby "+trafione);
     }
+
 
 }
