@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args){
@@ -19,11 +20,11 @@ public class Main {
         set-HashSet,elementy najczęściej nieindeksowane,nieuporządkowane,nie mogą się powtarzać
          */
         System.out.println("losowanie 5 licz do listy");
-        ArrayList<Integer>wylosowaneLiczby = new ArrayList<Integer>();
+        HashSet<Integer> wylosowaneLiczby = new HashSet<>();
         Integer liczba;//typ złożony liczba to obiekt ma metody
         int liczba2;//typ prosty liczba 2 nie ma metod tylko zmienna
         while (wylosowaneLiczby.size()<6){
-            int liczbaLosowana = (int)(Math.random()*100+1);
+            int liczbaLosowana = (int)(Math.random()*10+1);
             wylosowaneLiczby.add(liczbaLosowana);
         }
         System.out.println("wylosowane Liczby"+wylosowaneLiczby);
