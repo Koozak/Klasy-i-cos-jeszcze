@@ -41,6 +41,7 @@ public class Main {
             }
             wczytywaneLiczby.add(liczbaWpisana);
         }
+        System.out.println("Wczytywane liczby "+wczytywaneLiczby);
 
     }
 
