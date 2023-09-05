@@ -1,48 +1,53 @@
 import java.util.*;
 
 public class Main {
-    private static Set<Integer> wylosuj() {
-        System.out.println("losowanie 5 licz do listy");
+
+    private static Set<Integer> wylosuj(){
+        System.out.println("Losowanie 6 liczb do listy");
         HashSet<Integer> wylosowaneLiczby = new HashSet<>();
-        Integer liczba;//typ złożony liczba to obiekt ma metody
-        int liczba2;//typ prosty liczba 2 nie ma metod tylko zmienna
-        while (wylosowaneLiczby.size() < 6) {
-            int liczbaLosowana = (int) (Math.random() * 10 + 1);
+        while(wylosowaneLiczby.size()<6){
+            int liczbaLosowana = (int)(Math.random()*100+1);
             wylosowaneLiczby.add(liczbaLosowana);
         }
         return wylosowaneLiczby;
     }
-
-    private static ArrayList<Integer> wczytaj() {
+    private static List<Integer> wczytaj(){
+        List<Integer> wczytaneLiczby = new ArrayList<>();
         Scanner klawiatura = new Scanner(System.in);
-        for (int i = 0; i < 6; i++) {
-            System.out.println("podaj " + i + " liczbę");
-            int liczbaWpisana = klawiatura.nextInt();
-            while (wczytywaneLiczby.contains(liczbaWpisana)) {
-                System.out.println("podaj inną liczbę");
-                liczbaWpisana = klawiatura.nextInt();
-
+        for(int i =1 ; i <7;i++){
+            System.out.println("Podaj "+i+" liczbę");
+            int liczbaWpisana  = klawiatura.nextInt();
+            while(wczytaneLiczby.contains(liczbaWpisana)){
+                System.out.println("Podaj inną liczbę");
+                liczbaWpisana  = klawiatura.nextInt();
             }
-            wczytywaneLiczby.add(liczbaWpisana);
+            wczytaneLiczby.add(liczbaWpisana);
         }
-        return wczytywaneLiczby;
+        return wczytaneLiczby;
     }
-
-    public static void main(String[] args) {
-        Set<Integer> wylosowaneLiczby = wylosuj();
-        System.out.println("wylosowane Liczby" + wylosowaneLiczby);
-        //wczytywanie 6 liczb z klawiatury bez powtórzeń
-        ArrayList<Integer> wczytywaneLiczby = wczytaj();
-
-        System.out.println("Wczytywane liczby " + wczytywaneLiczby);
-        //trafione
+    private static List<Integer> podsumuj(Set<Integer> wylosowaneLiczby, List<Integer>wczytaneLiczby){
         List<Integer> trafione = new LinkedList<>();
-        for (Integer wylosow : wylosowaneLiczby) {
-            if (wczytywaneLiczby.contains(wylosow)) {
-                trafione.add(wylosow);
+        for(Integer wylosowana : wylosowaneLiczby){
+            if(wczytaneLiczby.contains(wylosowana)){
+                trafione.add(wylosowana);
             }
         }
-        System.out.println("trafione liczby " + trafione);
-
+        return trafione;
     }
+    public static void main(String[] args) {
+
+        Set<Integer> wylosowaneLiczby;
+        wylosowaneLiczby = wylosuj();
+        System.out.println("Wylosowane Liczby"+ wylosowaneLiczby);
+        //wczytywanie 6 liczb z klawiatury bez powtórzeń
+        List<Integer> wczytaneLiczby = wczytaj();
+        System.out.println("Wczytane liczby "+wczytaneLiczby);
+
+        //trafione
+        List<Integer> trafione = podsumuj(wylosowaneLiczby,wczytaneLiczby);
+        System.out.println("Trafione liczby "+trafione);
+     }
+
 }
+
+
